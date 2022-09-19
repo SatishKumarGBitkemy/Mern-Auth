@@ -15,7 +15,7 @@ exports.mailTransport = () =>
     // port: 2525,*/
     host: "smtp.gmail.com",
     port: 587,
-    secure: true,
+    // secure: true,
     auth: {
       user: process.env.MAILTRAP_USERNAME,
       pass: process.env.MAILTRAP_PASSWORD,
