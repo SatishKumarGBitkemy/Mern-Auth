@@ -33,7 +33,7 @@ exports.createUser = async (req, res) => {
   await newUser.save();
 
   mailTransport().sendMail({
-    from: process.env.MAILTRAP_FROMEMAIL,
+    from: process.env.MAILTRAP_USERNAME,
     to: newUser.email,
     subject: "Verify your email Account",
     html: generateEmailTemplate(OTP),
@@ -88,7 +88,7 @@ exports.verifyEmail = async (req, res) => {
   await user.save();
 
   mailTransport().sendMail({
-    from: process.env.MAILTRAP_FROMEMAIL,
+    from: process.env.MAILTRAP_USERNAME,
     to: user.email,
     subject: "Verify your email Account",
     html: welcomeEmailTemplate(
@@ -123,7 +123,7 @@ exports.forgotPassword = async (req, res) => {
   await resetToken.save();
 
   mailTransport().sendMail({
-    from: process.env.MAILTRAP_FROMEMAIL,
+    from: process.env.MAILTRAP_USERNAME,
     to: user.email,
     subject: "Password Reset",
     html: passwordResetEmailTemplate(
@@ -155,7 +155,7 @@ exports.resetPassword = async (req, res) => {
   await ResetToken.findOneAndDelete({ owner: user._id });
 
   mailTransport().sendMail({
-    from: process.env.MAILTRAP_FROMEMAIL,
+    from: process.env.MAILTRAP_USERNAME,
     to: user.email,
     subject: "Password Reset Successfully",
     html: plainEmailTemplate(
