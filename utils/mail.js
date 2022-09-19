@@ -14,6 +14,7 @@ exports.mailTransport = () =>
     /* MailTrap account // host: "smtp.mailtrap.io",
     // port: 2525,*/
     // host: "smtp.gmail.com",
+    name: "UserRegistration",
     service: "gmail",
     // port: 587,
     // secure: true,
