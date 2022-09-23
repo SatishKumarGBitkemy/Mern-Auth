@@ -127,7 +127,7 @@ exports.forgotPassword = async (req, res) => {
     to: user.email,
     subject: "Password Reset",
     html: passwordResetEmailTemplate(
-      `http://localhost:3000/reset-password?token=${randomBytes}&id=${user._id}`
+      `http://${process.env.CLIENT_URL}/reset-password?token=${randomBytes}&id=${user._id}`
     ),
   });
   res.json({

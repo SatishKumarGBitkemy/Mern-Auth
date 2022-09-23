@@ -25,6 +25,6 @@ app.use(express.json());
 
 app.use(userRouter);
 
-app.listen(port, () => {
+app.listen(port, `${process.env.CLIENT_URL}`, () => {
   console.log(`app is running ${port}`);
 });
